@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vocabulary List</title>
+    <style>
+        /* CSS Styles */
+
+        /* Resetting default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            text-align: center;
+            color: #333;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .vocab-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 15px 30px;
+            background-color: #fff;
+            color: #555;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        li:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.05);
+        }
+
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .popup-content {
+            background-color: white;
+            padding: 30px;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            position: relative;
+            transform: scale(0);
+            animation: popupScale 0.5s forwards;
+        }
+
+        .popup-content h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .popup-content p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Popup animations */
+        @keyframes popupScale {
+            to {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Footer styles */
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Vocabulary List</h1>
+    
+    <div class="vocab-list">
+        <ul id="vocabWords">
+            <li class="vocab-item" data-word="Adage" data-definition="(noun)a proverb, wise saying">Adage</li>
+            <li class="vocab-item" data-word="Bonanza" data-definition="(noun)something very valuable, profitable, or rewarding; a source of wealth or prosperity; a very large amount; sudden profit or gain">Bonanza</li>
+            <li class="vocab-item" data-word="Churlish" data-definition="(adj.)lacking politeness or good manners; lacking sensitivity; difficult to work with or deal with; rude;">Churlish</li>
+            <li class="vocab-item" data-word="Citadel" data-definition="(noun) a fortress the overlooks or protects a city; any strong or commanding place">Citadel</li>
+            <li class="vocab-item" data-word="Decree" data-definition="(noun) an order having the force of law; (verb) to issue such an order; to command firmly or forcefully">Decree</li>
+            <li class="vocab-item" data-word="Discordant" data-definition="(adj.) disagreeable in sound, jarring; lacking in harmony">Discordant</li>
+            <li class="vocab-item" data-word="Excerpt" data-definition="(noun) a passage taken from a book, article, etc.; (verb) to take such a passage; to quote">Excerpt</li>
+            <li class="vocab-item" data-word="Grope" data-definition="(verb) to feel about hesitantly with the hands; to search blindly and uncertainly">Grope</li>
+            <li class="vocab-item" data-word="Hover" data-definition="(verb) to float or hang suspended over; to move back and forth uncertainly over or around">Hover</li>
+            <li class="vocab-item" data-word="Jostle" data-definition="(verb) to make or force one's way by pushing or elbowing; to bump, brush against; to compete for">Jostle</li>
+            <li class="vocab-item" data-word="Laggard" data-definition="(noun) a person who moves slowly or falls behind; (adj.) falling behind; slow to move, act, or respond">Laggard</li>
+            <li class="vocab-item" data-word="Plaudits" data-definition="(noun; plural)applause; enthusiastic praise or approval">Plaudits</li>
+            <li class="vocab-item" data-word="Preclude" data-definition="(verb) to make impossible, prevent, shut out">Preclude</li>
+            <li class="vocab-item" data-word="Rubble" data-definition="(noun) broken stone or bricks; ruins">Rubble</li>
+            <li class="vocab-item" data-word="Servile" data-definition="(adj.) of or relating to a slave; behaving like or suitable for a slave or servant, menial; lacking spirit or independence, abjectly submissive">Servile</li>
+        </ul>
+    </div>
+
+    <!-- Popup for word details -->
+    <div id="vocabPopup" class="popup hidden">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="popupWord">Word</h2>
+            <p id="popupDefinition">Definition</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Sorry about text-to-speech being bad, it is the default for chrome and messes up servile(not to mention how it sounds terrible)</p>
+    </footer>
+
+    <script>
+        // JavaScript for Popup and Text-to-Speech Functionality
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const vocabItems = document.querySelectorAll('.vocab-item');
+            const popup = document.getElementById('vocabPopup');
+            const popupWord = document.getElementById('popupWord');
+            const popupDefinition = document.getElementById('popupDefinition');
+            const closeBtn = document.querySelector('.close-btn');
+
+            // Open popup and speak word when a vocab word is clicked
+            vocabItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const word = this.dataset.word;
+                    const definition = this.dataset.definition;
+
+                    popupWord.textContent = word;
+                    popupDefinition.textContent = definition;
+                    popup.classList.remove('hidden');
+
+                    // Text-to-Speech
+                    const speech = new SpeechSynthesisUtterance(word);
+                    speech.lang = 'en-US'; // Set the language
+                    window.speechSynthesis.speak(speech);
+                });
+            });
+
+            // Close popup when the close button is clicked
+            closeBtn.addEventListener('click', function() {
+                popup.classList.add('hidden');
+            });
+
+            // Close popup when clicking outside of it
+            window.addEventListener('click', function(e) {
+                if (e.target === popup) {
+                    popup.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
