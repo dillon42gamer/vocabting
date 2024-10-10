@@ -131,6 +131,47 @@
             margin: 5px 0;
             font-size: 1rem;
         }
+
+        /* Quiz styles */
+        .quiz-container {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz-definition {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .quiz-input {
+            padding: 10px;
+            font-size: 1.2rem;
+            width: 80%;
+            margin-bottom: 10px;
+        }
+
+        .quiz-btn {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .quiz-btn:hover {
+            background-color: #45a049;
+        }
+
+        .quiz-result {
+            margin-top: 20px;
+            font-size: 1.3rem;
+        }
     </style>
 </head>
 <body>
@@ -139,10 +180,10 @@
     
     <div class="vocab-list">
         <ul id="vocabWords">
-            <li class="vocab-item" data-word="Adage" data-definition="(noun)a proverb, wise saying">Adage</li>
-            <li class="vocab-item" data-word="Bonanza" data-definition="(noun)something very valuable, profitable, or rewarding; a source of wealth or prosperity; a very large amount; sudden profit or gain">Bonanza</li>
-            <li class="vocab-item" data-word="Churlish" data-definition="(adj.)lacking politeness or good manners; lacking sensitivity; difficult to work with or deal with; rude;">Churlish</li>
-            <li class="vocab-item" data-word="Citadel" data-definition="(noun) a fortress the overlooks or protects a city; any strong or commanding place">Citadel</li>
+            <li class="vocab-item" data-word="Adage" data-definition="(noun) a proverb, wise saying">Adage</li>
+            <li class="vocab-item" data-word="Bonanza" data-definition="(noun) something very valuable, profitable, or rewarding; a source of wealth or prosperity; a very large amount; sudden profit or gain">Bonanza</li>
+            <li class="vocab-item" data-word="Churlish" data-definition="(adj.) lacking politeness or good manners; lacking sensitivity; difficult to work with or deal with; rude;">Churlish</li>
+            <li class="vocab-item" data-word="Citadel" data-definition="(noun) a fortress that overlooks or protects a city; any strong or commanding place">Citadel</li>
             <li class="vocab-item" data-word="Decree" data-definition="(noun) an order having the force of law; (verb) to issue such an order; to command firmly or forcefully">Decree</li>
             <li class="vocab-item" data-word="Discordant" data-definition="(adj.) disagreeable in sound, jarring; lacking in harmony">Discordant</li>
             <li class="vocab-item" data-word="Excerpt" data-definition="(noun) a passage taken from a book, article, etc.; (verb) to take such a passage; to quote">Excerpt</li>
@@ -150,7 +191,7 @@
             <li class="vocab-item" data-word="Hover" data-definition="(verb) to float or hang suspended over; to move back and forth uncertainly over or around">Hover</li>
             <li class="vocab-item" data-word="Jostle" data-definition="(verb) to make or force one's way by pushing or elbowing; to bump, brush against; to compete for">Jostle</li>
             <li class="vocab-item" data-word="Laggard" data-definition="(noun) a person who moves slowly or falls behind; (adj.) falling behind; slow to move, act, or respond">Laggard</li>
-            <li class="vocab-item" data-word="Plaudits" data-definition="(noun; plural)applause; enthusiastic praise or approval">Plaudits</li>
+            <li class="vocab-item" data-word="Plaudits" data-definition="(noun; plural) applause; enthusiastic praise or approval">Plaudits</li>
             <li class="vocab-item" data-word="Preclude" data-definition="(verb) to make impossible, prevent, shut out">Preclude</li>
             <li class="vocab-item" data-word="Rubble" data-definition="(noun) broken stone or bricks; ruins">Rubble</li>
             <li class="vocab-item" data-word="Servile" data-definition="(adj.) of or relating to a slave; behaving like or suitable for a slave or servant, menial; lacking spirit or independence, abjectly submissive">Servile</li>
@@ -166,8 +207,20 @@
         </div>
     </div>
 
+    <!-- Quiz Section -->
+    <div class="quiz-container">
+        <h2>Guess the Word</h2>
+        <p id="quizDefinition" class="quiz-definition">Definition will go here</p>
+        <input type="text" id="quizInput" class="quiz-input" placeholder="Type the word">
+        <button id="quizSubmit" class="quiz-btn">Submit</button>
+        <p id="quizResult" class="quiz-result"></p>
+    </div>
+
+    <!-- Footer Section -->
     <footer>
-        <p>Sorry about text-to-speech being bad, it is the default for chrome and messes up servile(not to mention how it sounds terrible)</p>
+        <p>Your Name or Organization</p>
+        <p>© 2024 Your Name. All Rights Reserved.</p>
+        <p>Contact: your.email@example.com</p>
     </footer>
 
     <script>
@@ -180,34 +233,75 @@
             const popupDefinition = document.getElementById('popupDefinition');
             const closeBtn = document.querySelector('.close-btn');
 
-            // Open popup and speak word when a vocab word is clicked
             vocabItems.forEach(item => {
                 item.addEventListener('click', function() {
-                    const word = this.dataset.word;
-                    const definition = this.dataset.definition;
-
+                    const word = this.getAttribute('data-word');
+                    const definition = this.getAttribute('data-definition');
                     popupWord.textContent = word;
                     popupDefinition.textContent = definition;
+
+                    // Show popup
                     popup.classList.remove('hidden');
 
-                    // Text-to-Speech
-                    const speech = new SpeechSynthesisUtterance(word);
-                    speech.lang = 'en-US'; // Set the language
-                    window.speechSynthesis.speak(speech);
+                    // Speak the word
+                    const utterance = new SpeechSynthesisUtterance(word);
+                    window.speechSynthesis.speak(utterance);
                 });
             });
 
-            // Close popup when the close button is clicked
+            // Close popup
             closeBtn.addEventListener('click', function() {
                 popup.classList.add('hidden');
             });
 
-            // Close popup when clicking outside of it
-            window.addEventListener('click', function(e) {
-                if (e.target === popup) {
-                    popup.classList.add('hidden');
+            // Quiz Functionality
+            const quizDefinition = document.getElementById('quizDefinition');
+            const quizInput = document.getElementById('quizInput');
+            const quizSubmit = document.getElementById('quizSubmit');
+            const quizResult = document.getElementById('quizResult');
+            let currentWord = '';
+            let currentDefinition = '';
+
+            const vocabList = [
+                { word: 'Adage', definition: '(noun) a proverb, wise saying' },
+                { word: 'Bonanza', definition: '(noun) something very valuable, profitable, or rewarding; a source of wealth or prosperity; a very large amount; sudden profit or gain' },
+                { word: 'Churlish', definition: '(adj.) lacking politeness or good manners; lacking sensitivity; difficult to work with or deal with; rude' },
+                { word: 'Citadel', definition: '(noun) a fortress that overlooks or protects a city; any strong or commanding place' },
+                { word: 'Decree', definition: '(noun) an order having the force of law; (verb) to issue such an order; to command firmly or forcefully' },
+                { word: 'Discordant', definition: '(adj.) disagreeable in sound, jarring; lacking in harmony' },
+                { word: 'Excerpt', definition: '(noun) a passage taken from a book, article, etc.; (verb) to take such a passage; to quote' },
+                { word: 'Grope', definition: '(verb) to feel about hesitantly with the hands; to search blindly and uncertainly' },
+                { word: 'Hover', definition: '(verb) to float or hang suspended over; to move back and forth uncertainly over or around' },
+                { word: 'Jostle', definition: '(verb) to make or force one\'s way by pushing or elbowing; to bump, brush against; to compete for' },
+                { word: 'Laggard', definition: '(noun) a person who moves slowly or falls behind; (adj.) falling behind; slow to move, act, or respond' },
+                { word: 'Plaudits', definition: '(noun; plural) applause; enthusiastic praise or approval' },
+                { word: 'Preclude', definition: '(verb) to make impossible, prevent, shut out' },
+                { word: 'Rubble', definition: '(noun) broken stone or bricks; ruins' },
+                { word: 'Servile', definition: '(adj.) of or relating to a slave; behaving like or suitable for a slave or servant, menial; lacking spirit or independence, abjectly submissive' }
+            ];
+
+            function getRandomWord() {
+                const randomIndex = Math.floor(Math.random() * vocabList.length);
+                currentWord = vocabList[randomIndex].word;
+                currentDefinition = vocabList[randomIndex].definition;
+                quizDefinition.textContent = currentDefinition;
+            }
+
+            quizSubmit.addEventListener('click', function() {
+                const userAnswer = quizInput.value.trim();
+                if (userAnswer.toLowerCase() === currentWord.toLowerCase()) {
+                    quizResult.textContent = 'Correct!';
+                    quizResult.style.color = 'green';
+                } else {
+                    quizResult.textContent = `Incorrect. The correct word was: ${currentWord}`;
+                    quizResult.style.color = 'red';
                 }
+                quizInput.value = '';
+                getRandomWord();
             });
+
+            // Load the first random word when the page loads
+            getRandomWord();
         });
     </script>
 </body>
