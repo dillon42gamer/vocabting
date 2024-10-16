@@ -301,14 +301,14 @@
         });
         // Select the input field and submit button
 const answerInput = document.querySelector('#answerInput');
-const submitButton = document.querySelector('#submitAnswerBtn');
+const quizSubmit = document.querySelector('#submitAnswerBtn');
 
 // Add event listener for keydown event on the input field
 answerInput.addEventListener('keydown', function (e) {
     // Check if the pressed key is "Enter"
     if (e.key === 'Enter') {
         e.preventDefault(); // Prevent the default action (like a form submission)
-        submitButton.click(); // Trigger the click event on the submit button
+        quizSubmit.click(); // Trigger the click event on the submit button
     }
 });
 
