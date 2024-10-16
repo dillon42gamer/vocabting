@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <title>Vocabulary List</title>
     <style>
@@ -180,28 +178,28 @@
     
     <div class="vocab-list">
         <ul id="vocabWords">
-            <li class="vocab-item" data-word="Adage" data-definition="(noun) a proverb, wise saying">Adage</li>
-            <li class="vocab-item" data-word="Bonanza" data-definition="(noun) something very valuable, profitable, or rewarding; a source of wealth or prosperity; a very large amount; sudden profit or gain">Bonanza</li>
-            <li class="vocab-item" data-word="Churlish" data-definition="(adj.) lacking politeness or good manners; lacking sensitivity; difficult to work with or deal with; rude;">Churlish</li>
-            <li class="vocab-item" data-word="Citadel" data-definition="(noun) a fortress that overlooks or protects a city; any strong or commanding place">Citadel</li>
-            <li class="vocab-item" data-word="Decree" data-definition="(noun) an order having the force of law; (verb) to issue such an order; to command firmly or forcefully">Decree</li>
-            <li class="vocab-item" data-word="Discordant" data-definition="(adj.) disagreeable in sound, jarring; lacking in harmony">Discordant</li>
-            <li class="vocab-item" data-word="Excerpt" data-definition="(noun) a passage taken from a book, article, etc.; (verb) to take such a passage; to quote">Excerpt</li>
-            <li class="vocab-item" data-word="Grope" data-definition="(verb) to feel about hesitantly with the hands; to search blindly and uncertainly">Grope</li>
-            <li class="vocab-item" data-word="Hover" data-definition="(verb) to float or hang suspended over; to move back and forth uncertainly over or around">Hover</li>
-            <li class="vocab-item" data-word="Jostle" data-definition="(verb) to make or force one's way by pushing or elbowing; to bump, brush against; to compete for">Jostle</li>
-            <li class="vocab-item" data-word="Laggard" data-definition="(noun) a person who moves slowly or falls behind; (adj.) falling behind; slow to move, act, or respond">Laggard</li>
-            <li class="vocab-item" data-word="Plaudits" data-definition="(noun; plural) applause; enthusiastic praise or approval">Plaudits</li>
-            <li class="vocab-item" data-word="Preclude" data-definition="(verb) to make impossible, prevent, shut out">Preclude</li>
-            <li class="vocab-item" data-word="Rubble" data-definition="(noun) broken stone or bricks; ruins">Rubble</li>
-            <li class="vocab-item" data-word="Servile" data-definition="(adj.) of or relating to a slave; behaving like or suitable for a slave or servant, menial; lacking spirit or independence, abjectly submissive">Servile</li>
-        </ul>
+        <li class="vocab-item" data-word="Avowed" data-definition="(adj., part.) declared openly and without shame, acknowledged">Avowed</li>
+        <li class="vocab-item" data-word="Bountiful" data-definition="(adj.) giving freely, generous; plentiful, given abundantly">Bountiful</li>
+        <li class="vocab-item" data-word="Congested" data-definition="(adj., part.) overcrowded, filled or occupied to excess">Congested</li>
+        <li class="vocab-item" data-word="Detriment" data-definition="(n.) harm or loss; injury, damage; a disadvantage; a cause of harm, injury, loss, or damage">Detriment</li>
+        <li class="vocab-item" data-word="Durable" data-definition="(adj.) sturdy, not easily worn out or destroyed; lasting for a long time">Durable</li>
+        <li class="vocab-item" data-word="Enterprising" data-definition="(adj.) energetic, willing and able to start something new; showing boldness and imagination">Enterprising</li>
+        <li class="vocab-item" data-word="Frugal" data-definition="(adj.) economical, avoiding waste and luxury; scanty, poor, meager">Frugal</li>
+        <li class="vocab-item" data-word="Gingerly" data-definition="(adj., adv.) with extreme care or caution">Gingerly</li>
+        <li class="vocab-item" data-word="Glut" data-definition="(v.) to provide more than is needed or wanted; to feed or fill to the point of overstuffing; (n.) an oversupply">Glut</li>
+        <li class="vocab-item" data-word="Incognito" data-definition="(adj., adv.) in a disguised state, under an assumed name or identity; (n.) a person in disguise">Incognito</li>
+        <li class="vocab-item" data-word="Invalidate" data-definition="(v.) to make valueless, take away all force or effect">Invalidate</li>
+        <li class="vocab-item" data-word="Oblique" data-definition="(adj.) slanting or sloping; not straightforward or direct">Oblique</li>
+        <li class="vocab-item" data-word="Veer" data-definition="(v.) to change direction or course suddenly, turn aside, shift">Veer</li>
+        <li class="vocab-item" data-word="Venerate" data-definition="(v.) to regard with reverence, look up to with great respect">Venerate</li>
+        <li class="vocab-item" data-word="Wanton" data-definition="(adj.) reckless; heartless, unjustifiable; loose in morals; (n.) a spoiled, pampered person; one with low morals">Wanton</li>
+    </ul>
     </div>
 
     <!-- Popup for word details -->
     <div id="vocabPopup" class="popup hidden">
         <div class="popup-content">
-            <span class="close-btn">&times;</span>
+            <span class="close-btn">×</span>
             <h2 id="popupWord">Word</h2>
             <p id="popupDefinition">Definition</p>
         </div>
@@ -261,21 +259,21 @@
             let currentDefinition = '';
 
             const vocabList = [
-                { word: 'Adage', definition: '(noun) a proverb, wise saying' },
-                { word: 'Bonanza', definition: '(noun) something very valuable, profitable, or rewarding; a source of wealth or prosperity; a very large amount; sudden profit or gain' },
-                { word: 'Churlish', definition: '(adj.) lacking politeness or good manners; lacking sensitivity; difficult to work with or deal with; rude' },
-                { word: 'Citadel', definition: '(noun) a fortress that overlooks or protects a city; any strong or commanding place' },
-                { word: 'Decree', definition: '(noun) an order having the force of law; (verb) to issue such an order; to command firmly or forcefully' },
-                { word: 'Discordant', definition: '(adj.) disagreeable in sound, jarring; lacking in harmony' },
-                { word: 'Excerpt', definition: '(noun) a passage taken from a book, article, etc.; (verb) to take such a passage; to quote' },
-                { word: 'Grope', definition: '(verb) to feel about hesitantly with the hands; to search blindly and uncertainly' },
-                { word: 'Hover', definition: '(verb) to float or hang suspended over; to move back and forth uncertainly over or around' },
-                { word: 'Jostle', definition: '(verb) to make or force one\'s way by pushing or elbowing; to bump, brush against; to compete for' },
-                { word: 'Laggard', definition: '(noun) a person who moves slowly or falls behind; (adj.) falling behind; slow to move, act, or respond' },
-                { word: 'Plaudits', definition: '(noun; plural) applause; enthusiastic praise or approval' },
-                { word: 'Preclude', definition: '(verb) to make impossible, prevent, shut out' },
-                { word: 'Rubble', definition: '(noun) broken stone or bricks; ruins' },
-                { word: 'Servile', definition: '(adj.) of or relating to a slave; behaving like or suitable for a slave or servant, menial; lacking spirit or independence, abjectly submissive' }
+                { word: 'Avowed', definition: '(adj., part.) declared openly and without shame, acknowledged' },
+                { word: 'Bountiful', definition: '(adj.) giving freely, generous; plentiful, given abundantly' },
+                { word: 'Congested', definition: '(adj., part.) overcrowded, filled or occupied to excess' },
+                { word: 'Detriment', definition: '(n.) harm or loss; injury, damage; a disadvantage; a cause of harm, injury, loss, or damage' },
+                { word: 'Durable', definition: '(adj.) sturdy, not easily worn out or destroyed; lasting for a long time' },
+                { word: 'Enterprising', definition: '(adj.) energetic, willing and able to start something new; showing boldness and imagination' },
+                { word: 'Frugal', definition: '(adj.) economical, avoiding waste and luxury; scanty, poor, meager' },
+                { word: 'Gingerly', definition: '(adj., adv.) with extreme care or caution' },
+                { word: 'Glut', definition: '(v.) to provide more than is needed or wanted; to feed or fill to the point of overstuffing; (n.) an oversupply' },
+                { word: 'Incognito', definition: '(adj., adv.) in a disguised state, under an assumed name or identity; (n.) a person in disguise' },
+                { word: 'Invalidate', definition: '(v.) to make valueless, take away all force or effect' },
+                { word: 'Oblique', definition: '(adj.) slanting or sloping; not straightforward or direct' },
+                { word: 'Veer', definition: '(v.) to change direction or course suddenly, turn aside, shift' },
+                { word: 'Venerate', definition: '(v.) to regard with reverence, look up to with great respect' },
+                { word: 'Wanton', definition: '(adj.) reckless; heartless, unjustifiable; loose in morals; (n.) a spoiled, pampered person; one with low morals' }
             ];
 
             function getRandomWord() {
@@ -301,6 +299,24 @@
             // Load the first random word when the page loads
             getRandomWord();
         });
+        // Select the input field and submit button
+const answerInput = document.querySelector('#answerInput');
+const submitButton = document.querySelector('#submitAnswerBtn');
+
+// Add event listener for keydown event on the input field
+answerInput.addEventListener('keydown', function (e) {
+    // Check if the pressed key is "Enter"
+    if (e.key === 'Enter') {
+        e.preventDefault(); // Prevent the default action (like a form submission)
+        submitButton.click(); // Trigger the click event on the submit button
+    }
+});
+
+// Optional: Clear the input field after submission
+submitButton.addEventListener('click', function() {
+    answerInput.value = ''; // Clear the input field
+});
     </script>
-</body>
-</html>
+
+
+</body></html>
