@@ -1,16 +1,15 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title>Vocabulary List</title>
+    <title>Vocabulary List - Unit 3</title>
     <style>
         /* CSS Styles */
-
-        /* Resetting default margin and padding */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f9f9f9;
@@ -18,24 +17,20 @@
             color: #333;
             padding: 20px;
         }
-
         h1 {
             font-size: 2.5rem;
             color: #444;
             margin-bottom: 20px;
         }
-
         .vocab-list {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-
         ul {
             list-style-type: none;
             padding: 0;
         }
-
         li {
             cursor: pointer;
             font-size: 1.5rem;
@@ -47,12 +42,10 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, background-color 0.3s ease;
         }
-
         li:hover {
             background-color: #f0f0f0;
             transform: scale(1.05);
         }
-
         .popup {
             position: fixed;
             top: 0;
@@ -65,7 +58,6 @@
             align-items: center;
             animation: fadeIn 0.3s ease;
         }
-
         .popup-content {
             background-color: white;
             padding: 30px;
@@ -76,17 +68,14 @@
             transform: scale(0);
             animation: popupScale 0.5s forwards;
         }
-
         .popup-content h2 {
             font-size: 2rem;
             margin-bottom: 10px;
         }
-
         .popup-content p {
             font-size: 1.2rem;
             color: #666;
         }
-
         .close-btn {
             position: absolute;
             top: 10px;
@@ -94,18 +83,14 @@
             font-size: 1.5rem;
             cursor: pointer;
         }
-
         .hidden {
             display: none;
         }
-
-        /* Popup animations */
         @keyframes popupScale {
             to {
                 transform: scale(1);
             }
         }
-
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -114,8 +99,6 @@
                 opacity: 1;
             }
         }
-
-        /* Footer styles */
         footer {
             margin-top: 40px;
             padding: 20px;
@@ -124,13 +107,10 @@
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
-
         footer p {
             margin: 5px 0;
             font-size: 1rem;
         }
-
-        /* Quiz styles */
         .quiz-container {
             margin-top: 30px;
             padding: 20px;
@@ -138,19 +118,16 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-
         .quiz-definition {
             font-size: 1.5rem;
             margin-bottom: 20px;
         }
-
         .quiz-input {
             padding: 10px;
             font-size: 1.2rem;
             width: 80%;
             margin-bottom: 10px;
         }
-
         .quiz-btn {
             padding: 10px 20px;
             font-size: 1.2rem;
@@ -161,11 +138,9 @@
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
-
         .quiz-btn:hover {
             background-color: #45a049;
         }
-
         .quiz-result {
             margin-top: 20px;
             font-size: 1.3rem;
@@ -173,30 +148,33 @@
     </style>
 </head>
 <body>
-
-    <h1>Vocabulary List</h1>
+    <h1>Vocabulary List - Unit 3</h1>
     
     <div class="vocab-list">
         <ul id="vocabWords">
-        <li class="vocab-item" data-word="Avowed" data-definition="(adj., part.) declared openly and without shame, acknowledged">Avowed</li>
-        <li class="vocab-item" data-word="Bountiful" data-definition="(adj.) giving freely, generous; plentiful, given abundantly">Bountiful</li>
-        <li class="vocab-item" data-word="Congested" data-definition="(adj., part.) overcrowded, filled or occupied to excess">Congested</li>
-        <li class="vocab-item" data-word="Detriment" data-definition="(n.) harm or loss; injury, damage; a disadvantage; a cause of harm, injury, loss, or damage">Detriment</li>
-        <li class="vocab-item" data-word="Durable" data-definition="(adj.) sturdy, not easily worn out or destroyed; lasting for a long time">Durable</li>
-        <li class="vocab-item" data-word="Enterprising" data-definition="(adj.) energetic, willing and able to start something new; showing boldness and imagination">Enterprising</li>
-        <li class="vocab-item" data-word="Frugal" data-definition="(adj.) economical, avoiding waste and luxury; scanty, poor, meager">Frugal</li>
-        <li class="vocab-item" data-word="Gingerly" data-definition="(adj., adv.) with extreme care or caution">Gingerly</li>
-        <li class="vocab-item" data-word="Glut" data-definition="(v.) to provide more than is needed or wanted; to feed or fill to the point of overstuffing; (n.) an oversupply">Glut</li>
-        <li class="vocab-item" data-word="Incognito" data-definition="(adj., adv.) in a disguised state, under an assumed name or identity; (n.) a person in disguise">Incognito</li>
-        <li class="vocab-item" data-word="Invalidate" data-definition="(v.) to make valueless, take away all force or effect">Invalidate</li>
-        <li class="vocab-item" data-word="Oblique" data-definition="(adj.) slanting or sloping; not straightforward or direct">Oblique</li>
-        <li class="vocab-item" data-word="Veer" data-definition="(v.) to change direction or course suddenly, turn aside, shift">Veer</li>
-        <li class="vocab-item" data-word="Venerate" data-definition="(v.) to regard with reverence, look up to with great respect">Venerate</li>
-        <li class="vocab-item" data-word="Wanton" data-definition="(adj.) reckless; heartless, unjustifiable; loose in morals; (n.) a spoiled, pampered person; one with low morals">Wanton</li>
-    </ul>
+            <li class="vocab-item" data-word="allot" data-definition="to assign or distribute in shares or portions">Allot</li>
+            <li class="vocab-item" data-word="amass" data-definition="to bring together, collect, gather, especially for oneself">Amass</li>
+            <li class="vocab-item" data-word="audacious" data-definition="bold, adventurous, recklessly daring">Audacious</li>
+            <li class="vocab-item" data-word="comply" data-definition="to yield to a request or command">Comply</li>
+            <li class="vocab-item" data-word="devoid" data-definition="not having or using, lacking">Devoid</li>
+            <li class="vocab-item" data-word="elite" data-definition="the choice part of a group of people or things; superior">Elite</li>
+            <li class="vocab-item" data-word="grapple" data-definition="an iron hook used to grab and hold; to wrestle or fight with">Grapple</li>
+            <li class="vocab-item" data-word="incapacitate" data-definition="to deprive of strength or ability; to make legally ineligible">Incapacitate</li>
+            <li class="vocab-item" data-word="instigate" data-definition="to urge on; to stir up, start, incite">Instigate</li>
+            <li class="vocab-item" data-word="longevity" data-definition="long life, long duration, length of life">Longevity</li>
+            <li class="vocab-item" data-word="myriad" data-definition="in very great numbers; a very great number">Myriad</li>
+            <li class="vocab-item" data-word="perspective" data-definition="a point of view or general standpoint from which different things are viewed">Perspective</li>
+            <li class="vocab-item" data-word="perturb" data-definition="to trouble, make uneasy; to disturb greatly">Perturb</li>
+            <li class="vocab-item" data-word="prodigious" data-definition="immense; extraordinary in bulk, size, or degree">Prodigious</li>
+            <li class="vocab-item" data-word="relevant" data-definition="connected with or related to the matter at hand">Relevant</li>
+            <li class="vocab-item" data-word="skittish" data-definition="extremely nervous and easily frightened; shy or timid">Skittish</li>
+            <li class="vocab-item" data-word="tether" data-definition="a rope or chain used to fasten something; to fasten with a rope or chain">Tether</li>
+            <li class="vocab-item" data-word="unison" data-definition="a sounding together; agreement or accord">Unison</li>
+            <li class="vocab-item" data-word="vie" data-definition="to compete; to strive for victory or superiority">Vie</li>
+            <li class="vocab-item" data-word="willful" data-definition="stubbornly self-willed; done on purpose, deliberate">Willful</li>
+        </ul>
     </div>
 
-    <!-- Popup for word details -->
     <div id="vocabPopup" class="popup hidden">
         <div class="popup-content">
             <span class="close-btn">×</span>
@@ -205,7 +183,6 @@
         </div>
     </div>
 
-    <!-- Quiz Section -->
     <div class="quiz-container">
         <h2>Guess the Word</h2>
         <p id="quizDefinition" class="quiz-definition">Definition will go here</p>
@@ -214,109 +191,111 @@
         <p id="quizResult" class="quiz-result"></p>
     </div>
 
-    <!-- Footer Section -->
+    <div class="quiz-container">
+        <h2>Guess the Word from Sentence</h2>
+        <p id="quizSentence" class="quiz-definition">Sentence will go here</p>
+        <input type="text" id="sentenceInput" class="quiz-input" placeholder="Type the word">
+        <button id="sentenceSubmit" class="quiz-btn">Submit</button>
+        <p id="sentenceResult" class="quiz-result"></p>
+    </div>
+
+    <div id="percentageDisplay">Percentage: 0%</div>
+
     <footer>
-        <p>Sorry about the text-to-speech being bad, it messes up servile and stuff and sounds annoying.</p>
+        <p>Sorry about the text-to-speech being bad, it messes up words sometimes. Thanks for using this!</p>
     </footer>
 
     <script>
-        // JavaScript for Popup and Text-to-Speech Functionality
+        /* percentage.js */
+        const vocabWords = [
+            "allot", "amass", "audacious", "comply", "devoid", "elite", "grapple",
+            "incapacitate", "instigate", "longevity", "myriad", "perspective",
+            "perturb", "prodigious", "relevant", "skittish", "tether", "unison",
+            "vie", "willful"
+        ];
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const vocabItems = document.querySelectorAll('.vocab-item');
-            const popup = document.getElementById('vocabPopup');
-            const popupWord = document.getElementById('popupWord');
-            const popupDefinition = document.getElementById('popupDefinition');
-            const closeBtn = document.querySelector('.close-btn');
+        let correctAnswers = 0;
+        let totalAttempts = 0;
 
-            vocabItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    const word = this.getAttribute('data-word');
-                    const definition = this.getAttribute('data-definition');
-                    popupWord.textContent = word;
-                    popupDefinition.textContent = definition;
+        function updatePercentage() {
+            const percentage = (correctAnswers / totalAttempts) * 100;
+            document.getElementById("percentageDisplay").textContent = `Percentage: ${percentage.toFixed(2)}%`;
+        }
 
-                    // Show popup
-                    popup.classList.remove('hidden');
-
-                    // Speak the word
-                    const utterance = new SpeechSynthesisUtterance(word);
-                    window.speechSynthesis.speak(utterance);
-                });
-            });
-
-            // Close popup
-            closeBtn.addEventListener('click', function() {
-                popup.classList.add('hidden');
-            });
-
-            // Quiz Functionality
-            const quizDefinition = document.getElementById('quizDefinition');
-            const quizInput = document.getElementById('quizInput');
-            const quizSubmit = document.getElementById('quizSubmit');
-            const quizResult = document.getElementById('quizResult');
-            let currentWord = '';
-            let currentDefinition = '';
-
-            const vocabList = [
-                { word: 'Avowed', definition: '(adj., part.) declared openly and without shame, acknowledged' },
-                { word: 'Bountiful', definition: '(adj.) giving freely, generous; plentiful, given abundantly' },
-                { word: 'Congested', definition: '(adj., part.) overcrowded, filled or occupied to excess' },
-                { word: 'Detriment', definition: '(n.) harm or loss; injury, damage; a disadvantage; a cause of harm, injury, loss, or damage' },
-                { word: 'Durable', definition: '(adj.) sturdy, not easily worn out or destroyed; lasting for a long time' },
-                { word: 'Enterprising', definition: '(adj.) energetic, willing and able to start something new; showing boldness and imagination' },
-                { word: 'Frugal', definition: '(adj.) economical, avoiding waste and luxury; scanty, poor, meager' },
-                { word: 'Gingerly', definition: '(adj., adv.) with extreme care or caution' },
-                { word: 'Glut', definition: '(v.) to provide more than is needed or wanted; to feed or fill to the point of overstuffing; (n.) an oversupply' },
-                { word: 'Incognito', definition: '(adj., adv.) in a disguised state, under an assumed name or identity; (n.) a person in disguise' },
-                { word: 'Invalidate', definition: '(v.) to make valueless, take away all force or effect' },
-                { word: 'Oblique', definition: '(adj.) slanting or sloping; not straightforward or direct' },
-                { word: 'Veer', definition: '(v.) to change direction or course suddenly, turn aside, shift' },
-                { word: 'Venerate', definition: '(v.) to regard with reverence, look up to with great respect' },
-                { word: 'Wanton', definition: '(adj.) reckless; heartless, unjustifiable; loose in morals; (n.) a spoiled, pampered person; one with low morals' }
-            ];
-
-            function getRandomWord() {
-                const randomIndex = Math.floor(Math.random() * vocabList.length);
-                currentWord = vocabList[randomIndex].word;
-                currentDefinition = vocabList[randomIndex].definition;
-                quizDefinition.textContent = currentDefinition;
+        document.getElementById("quizSubmit").addEventListener("click", function () {
+            const answer = document.getElementById("quizInput").value.toLowerCase();
+            totalAttempts++;
+            if (vocabWords.includes(answer)) {
+                correctAnswers++;
+                document.getElementById("quizResult").textContent = "Correct!";
+            } else {
+                document.getElementById("quizResult").textContent = "Try again!";
             }
-
-            quizSubmit.addEventListener('click', function() {
-                const userAnswer = quizInput.value.trim();
-                if (userAnswer.toLowerCase() === currentWord.toLowerCase()) {
-                    quizResult.textContent = 'Correct!';
-                    quizResult.style.color = 'green';
-                } else {
-                    quizResult.textContent = `Incorrect. The correct word was: ${currentWord}`;
-                    quizResult.style.color = 'red';
-                }
-                quizInput.value = '';
-                getRandomWord();
-            });
-
-            // Load the first random word when the page loads
-            getRandomWord();
+            updatePercentage();
+            document.getElementById("quizInput").value = "";
         });
-        // Select the input field and submit button
-const answerInput = document.querySelector('#answerInput');
-const quizSubmit = document.querySelector('#submitAnswerBtn');
 
-// Add event listener for keydown event on the input field
-answerInput.addEventListener('keydown', function (e) {
-    // Check if the pressed key is "Enter"
-    if (e.key === 'Enter') {
-        e.preventDefault(); // Prevent the default action (like a form submission)
-        quizSubmit.click(); // Trigger the click event on the submit button
-    }
-});
+        /* inasentence.js */
+        const sentenceDefinitions = [
+            { word: "allot", sentence: "The teacher decided to ___ enough time for each group to present." },
+            { word: "amass", sentence: "Over the years, they managed to ___ a large collection of stamps." },
+            { word: "audacious", sentence: "Her ___ plans shocked everyone in the meeting." },
+            { word: "comply", sentence: "Please ___ with the safety regulations." },
+            { word: "devoid", sentence: "The landscape was ___ of any greenery after the drought." },
+            { word: "elite", sentence: "Only the ___ athletes made it to the championship." },
+            { word: "grapple", sentence: "They had to ___ with many difficulties during the project." },
+            { word: "incapacitate", sentence: "A sudden illness may ___ someone from working." },
+            { word: "instigate", sentence: "The manager tried to ___ a positive change within the team." },
+            { word: "longevity", sentence: "They wished each other health and ___." },
+            { word: "myriad", sentence: "There are a ___ of solutions to this problem." },
+            { word: "perspective", sentence: "It's always good to hear another person's ___." },
+            { word: "perturb", sentence: "Loud noises outside the window started to ___ her." },
+            { word: "prodigious", sentence: "The artist had a ___ talent from a young age." },
+            { word: "relevant", sentence: "Make sure all comments are ___ to the discussion." },
+            { word: "skittish", sentence: "The horse was ___ and easily startled." },
+            { word: "tether", sentence: "Make sure to ___ your bike to the rack before leaving." },
+            { word: "unison", sentence: "They all sang in ___, creating a beautiful harmony." },
+            { word: "vie", sentence: "Each contestant will ___ for the grand prize." },
+            { word: "willful", sentence: "Her ___ nature made her stand out from the rest." }
+        ];
 
-// Optional: Clear the input field after submission
-submitButton.addEventListener('click', function() {
-    answerInput.value = ''; // Clear the input field
-});
+        function getRandomSentence() {
+            return sentenceDefinitions[Math.floor(Math.random() * sentenceDefinitions.length)];
+        }
+
+        document.getElementById("sentenceSubmit").addEventListener("click", function () {
+            const answer = document.getElementById("sentenceInput").value.toLowerCase();
+            totalAttempts++;
+            const currentSentence = getRandomSentence();
+            document.getElementById("quizSentence").textContent = currentSentence.sentence.replace("___", currentSentence.word);
+            if (answer === currentSentence.word) {
+                correctAnswers++;
+                document.getElementById("sentenceResult").textContent = "Correct!";
+            } else {
+                document.getElementById("sentenceResult").textContent = "Try again!";
+            }
+            updatePercentage();
+            document.getElementById("sentenceInput").value = "";
+        });
+
+        /* Vocabulary word popup */
+        const vocabItems = document.querySelectorAll(".vocab-item");
+        const popup = document.getElementById("vocabPopup");
+        const popupWord = document.getElementById("popupWord");
+        const popupDefinition = document.getElementById("popupDefinition");
+        const closeBtn = document.querySelector(".close-btn");
+
+        vocabItems.forEach(item => {
+            item.addEventListener("click", () => {
+                popup.classList.remove("hidden");
+                popupWord.textContent = item.getAttribute("data-word");
+                popupDefinition.textContent = item.getAttribute("data-definition");
+            });
+        });
+
+        closeBtn.addEventListener("click", () => {
+            popup.classList.add("hidden");
+        });
     </script>
-
-
-</body></html>
+</body>
+</html>
