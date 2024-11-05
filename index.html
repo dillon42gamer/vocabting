@@ -289,6 +289,35 @@
                 quizResult.textContent = `Wrong! The correct answer was "${currentWord}".`;
             }
         });
+        // Sentence Quiz
+        const quizSentence = document.getElementById('quizSentence');
+        const quizInputSent = document.getElementById('quizInputSent');
+        const quizSubmitSent = document.getElementById('quizSubmitSent');
+        const quizResultSent = document.getElementById('quizResultSent');
+
+        function loadSentenceQuiz() {
+            const randomWordObj = vocabList[Math.floor(Math.random() * vocabList.length)];
+            quizSentence.textContent = randomWordObj.sentence;
+            quizSubmitSent.onclick = () => {
+                totalCount++;
+                if (quizInputSent.value.trim().toLowerCase() === randomWordObj.word.toLowerCase()) {
+                    quizResultSent.textContent = "Correct!";
+                    quizResultSent.style.color = "green";
+                    correctCount++;
+                } else {
+                    quizResultSent.textContent = `Incorrect. The correct word was: ${randomWordObj.word}`;
+                    quizResultSent.style.color = "red";
+                }
+                quizInputSent.value = '';
+                loadSentenceQuiz();
+                updatePercentage();
+            };
+        }
+
+        // Initialize Quizzes
+        loadDefinitionQuiz();
+        loadSentenceQuiz();
+    </script>
 
         // Start the quiz when the page loads
         window.onload = generateQuiz;
