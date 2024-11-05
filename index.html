@@ -231,6 +231,16 @@
         <button id="quizSubmit" class="quiz-btn">Submit</button
         <div id="quizResult" class="quiz-result"></div>
     </div>
+        <!-- Sentence Quiz Section -->
+    <div class="quiz-container">
+        <h2>Guess the Word (Sentence)</h2>
+        <p id="quizSentence" class="quiz-sentence">Sentence will go here</p>
+        <input type="text" id="quizInputSent" class="quiz-input" placeholder="Type the word">
+        <button id="quizSubmitSent" class="quiz-btn">Submit</button>
+        <p id="quizResultSent" class="quiz-result"></p>
+    </div>
+
+    <div id="percentageDisplay">Percentage: 0%</div>
 
     <footer>
         <p>Vocabulary Project</p>
@@ -317,7 +327,6 @@
         // Initialize Quizzes
         loadDefinitionQuiz();
         loadSentenceQuiz();
-    </script>
 
         // Start the quiz when the page loads
         window.onload = generateQuiz;
