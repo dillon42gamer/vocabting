@@ -15,7 +15,6 @@
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f9f9f9;
-            text-align: center;
             color: #333;
             padding: 20px;
         }
@@ -24,6 +23,33 @@
             font-size: 2.5rem;
             color: #444;
             margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .vocab-list-container {
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: left;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .vocab-list-container h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .vocab-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .vocab-list li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
         }
 
         .quiz-container {
@@ -32,6 +58,7 @@
             background-color: #f4f4f4;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
         .quiz-definition,
@@ -72,11 +99,49 @@
             font-size: 1.2rem;
             color: #333;
         }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #ddd;
+        }
     </style>
 </head>
 <body>
 
     <h1>Vocabulary List - Unit 3</h1>
+
+    <!-- Vocabulary List Section -->
+    <div class="vocab-list-container">
+        <h2>Unit 3 Vocabulary Words</h2>
+        <div class="vocab-list">
+            <ul>
+                <li><strong>Allot</strong>: to assign or distribute in shares or portions</li>
+                <li><strong>Amass</strong>: to bring together, collect, gather, especially for oneself; to come together, assemble</li>
+                <li><strong>Audacious</strong>: bold, adventurous, recklessly daring</li>
+                <li><strong>Comply</strong>: to yield to a request or command</li>
+                <li><strong>Devoid</strong>: not having or using, lacking</li>
+                <li><strong>Elite</strong>: the choice part of a group of people or things; superior</li>
+                <li><strong>Grapple</strong>: an iron hook used to grab and hold; to come to grips with, wrestle or fight with</li>
+                <li><strong>Incapacitate</strong>: to deprive of strength or ability; to make legally ineligible</li>
+                <li><strong>Instigate</strong>: to urge on; to stir up, start, incite</li>
+                <li><strong>Longevity</strong>: long life, long duration, length of life</li>
+                <li><strong>Myriad</strong>: in very great numbers; a very great number</li>
+                <li><strong>Perspective</strong>: a point of view or general standpoint from which different things are viewed</li>
+                <li><strong>Perturb</strong>: to trouble, make uneasy; to disturb greatly</li>
+                <li><strong>Prodigious</strong>: immense; extraordinary in bulk, size, or degree</li>
+                <li><strong>Relevant</strong>: connected with or related to the matter at hand</li>
+                <li><strong>Skittish</strong>: extremely nervous and easily frightened; shy or timid</li>
+                <li><strong>Tether</strong>: a rope or chain used to fasten something to a fixed object; to fasten with a rope or chain</li>
+                <li><strong>Unison</strong>: a sounding together; agreement or accord</li>
+                <li><strong>Vie</strong>: to compete; to strive for victory or superiority</li>
+                <li><strong>Willful</strong>: stubbornly self-willed; done on purpose, deliberate</li>
+            </ul>
+        </div>
+    </div>
 
     <!-- Definition Quiz Section -->
     <div class="quiz-container">
@@ -98,6 +163,10 @@
 
     <div id="percentageDisplay">Percentage: 0%</div>
 
+    <footer>
+        why do i do this to myself like this is so boring to code
+    </footer>
+
     <script>
         // Vocabulary List for Unit 3
         const vocabList = [
@@ -112,73 +181,67 @@
             { word: "instigate", definition: "to urge on; to stir up, start, incite", sentence: "Several demonstrators in the angry crowd did their best to instigate a riot." },
             { word: "longevity", definition: "long life, long duration, length of life", sentence: "The sea turtle is known for its longevity." },
             { word: "myriad", definition: "in very great numbers; a very great number", sentence: "Scientists continue to make new discoveries in their studies of the myriad life-forms of the jungle." },
-            { word: "perspective", definition: "a point of view or general standpoint from which different things are viewed, physically or mentally", sentence: "The designs for the children’s playhouse were drawn to scale and in the right perspective." },
-            { word: "perturb", definition: "to trouble, make uneasy; to disturb greatly; to throw into confusion", sentence: "The rude and disruptive behavior of several party guests perturbed the host and hostess." },
+            { word: "perspective", definition: "a point of view or general standpoint from which different things are viewed", sentence: "The designs for the children’s playhouse were drawn to scale and in the right perspective." },
+            { word: "perturb", definition: "to trouble, make uneasy; to disturb greatly", sentence: "The rude and disruptive behavior of several party guests perturbed the host and hostess." },
             { word: "prodigious", definition: "immense; extraordinary in bulk, size, or degree", sentence: "Few intellects have rivaled the prodigious mind of Albert Einstein." },
             { word: "relevant", definition: "connected with or related to the matter at hand", sentence: "I found several Web sites that provided information relevant to the topic of my research paper." },
-            { word: "skittish", definition: "extremely nervous and easily frightened; shy or timid; extremely cautious; unstable, undependable", sentence: "Only an experienced and confident rider should mount a skittish horse." },
+            { word: "skittish", definition: "extremely nervous and easily frightened; shy or timid", sentence: "Only an experienced and confident rider should mount a skittish horse." },
             { word: "tether", definition: "a rope or chain used to fasten something to a fixed object; to fasten with a rope or chain", sentence: "Some young people find it difficult to break the emotional and financial tether that binds them to their parents." },
             { word: "unison", definition: "a sounding together; agreement or accord", sentence: "The members of our new student orchestra need to practice playing in unison." },
             { word: "vie", definition: "to compete; to strive for victory or superiority", sentence: "Many actors vie for the leading role in the famous director’s new film." },
-            { word: "willful", definition: "stubbornly self-willed; done on purpose, deliberate", sentence: "After lengthy deliberation, the jury found the defendant guilty of willful murder." }
+            { word: "willful", definition: "stubbornly self-willed; done on purpose, deliberate", sentence: "After lengthy deliberations, the jury found the defendant guilty of willful murder." }
         ];
 
         let correctCount = 0;
-        let totalCount = 0;
-
-        function updatePercentage() {
-            const percentage = totalCount > 0 ? Math.round((correctCount / totalCount) * 100) : 0;
-            document.getElementById('percentageDisplay').textContent = `Percentage: ${percentage}%`;
-        }
-
-        // Definition Quiz
-        const quizDefinition = document.getElementById('quizDefinition');
-        const quizInputDef = document.getElementById('quizInputDef');
-        const quizSubmitDef = document.getElementById('quizSubmitDef');
-        const quizResultDef = document.getElementById('quizResultDef');
+        let totalAttempts = 0;
 
         function loadDefinitionQuiz() {
             const randomWordObj = vocabList[Math.floor(Math.random() * vocabList.length)];
-            quizDefinition.textContent = randomWordObj.definition;
-            quizSubmitDef.onclick = () => {
-                totalCount++;
-                if (quizInputDef.value.trim().toLowerCase() === randomWordObj.word.toLowerCase()) {
-                    quizResultDef.textContent = "Correct!";
-                    quizResultDef.style.color = "green";
+            document.getElementById("quizDefinition").textContent = randomWordObj.definition;
+
+            const quizSubmitDef = document.getElementById("quizSubmitDef");
+            quizSubmitDef.onclick = function () {
+                totalAttempts++;
+                const userAnswer = document.getElementById("quizInputDef").value.trim().toLowerCase();
+                if (userAnswer === randomWordObj.word.toLowerCase()) {
+                    document.getElementById("quizResultDef").textContent = "Correct!";
+                    document.getElementById("quizResultDef").style.color = "green";
                     correctCount++;
                 } else {
-                    quizResultDef.textContent = `Incorrect. The correct word was: ${randomWordObj.word}`;
-                    quizResultDef.style.color = "red";
+                    document.getElementById("quizResultDef").textContent = `Incorrect. The correct word was: ${randomWordObj.word}`;
+                    document.getElementById("quizResultDef").style.color = "red";
                 }
-                quizInputDef.value = '';
+                document.getElementById("quizInputDef").value = '';
                 loadDefinitionQuiz();
                 updatePercentage();
             };
         }
 
-        // Sentence Quiz
-        const quizSentence = document.getElementById('quizSentence');
-        const quizInputSent = document.getElementById('quizInputSent');
-        const quizSubmitSent = document.getElementById('quizSubmitSent');
-        const quizResultSent = document.getElementById('quizResultSent');
-
         function loadSentenceQuiz() {
             const randomWordObj = vocabList[Math.floor(Math.random() * vocabList.length)];
-            quizSentence.textContent = randomWordObj.sentence;
-            quizSubmitSent.onclick = () => {
-                totalCount++;
-                if (quizInputSent.value.trim().toLowerCase() === randomWordObj.word.toLowerCase()) {
-                    quizResultSent.textContent = "Correct!";
-                    quizResultSent.style.color = "green";
+            document.getElementById("quizSentence").textContent = randomWordObj.sentence;
+
+            const quizSubmitSent = document.getElementById("quizSubmitSent");
+            quizSubmitSent.onclick = function () {
+                totalAttempts++;
+                const userAnswer = document.getElementById("quizInputSent").value.trim().toLowerCase();
+                if (userAnswer === randomWordObj.word.toLowerCase()) {
+                    document.getElementById("quizResultSent").textContent = "Correct!";
+                    document.getElementById("quizResultSent").style.color = "green";
                     correctCount++;
                 } else {
-                    quizResultSent.textContent = `Incorrect. The correct word was: ${randomWordObj.word}`;
-                    quizResultSent.style.color = "red";
+                    document.getElementById("quizResultSent").textContent = `Incorrect. The correct word was: ${randomWordObj.word}`;
+                    document.getElementById("quizResultSent").style.color = "red";
                 }
-                quizInputSent.value = '';
+                document.getElementById("quizInputSent").value = '';
                 loadSentenceQuiz();
                 updatePercentage();
             };
+        }
+
+        function updatePercentage() {
+            const percentage = totalAttempts ? ((correctCount / totalAttempts) * 100).toFixed(2) : 0;
+            document.getElementById("percentageDisplay").textContent = `Percentage: ${percentage}%`;
         }
 
         // Initialize Quizzes
