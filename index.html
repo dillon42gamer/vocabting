@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Vocabulary List - Unit 3</title>
+    <title>Vocabulary List</title>
     <style>
         /* CSS Styles */
 
+        /* Resetting default margin and padding */
         * {
             margin: 0;
             padding: 0;
@@ -15,6 +16,7 @@
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f9f9f9;
+            text-align: center;
             color: #333;
             padding: 20px;
         }
@@ -23,46 +25,134 @@
             font-size: 2.5rem;
             color: #444;
             margin-bottom: 20px;
-            text-align: center;
         }
 
-        .vocab-list-container {
-            margin: 20px auto;
-            max-width: 600px;
-            text-align: left;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .vocab-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .vocab-list-container h2 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-
-        .vocab-list ul {
+        ul {
             list-style-type: none;
             padding: 0;
         }
 
-        .vocab-list li {
-            margin-bottom: 10px;
-            font-size: 1.1rem;
+        li {
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 15px 30px;
+            color: #555;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
+        /* Adjust the background gradient color based on difficulty */
+        .easy {
+            background: linear-gradient(to right, #a8e6cf, #dcedc1);
+        }
+
+        .medium {
+            background: linear-gradient(to right, #ffe0b2, #ffcc80);
+        }
+
+        .hard {
+            background: linear-gradient(to right, #ffab91, #ff8a65);
+        }
+
+        li:hover {
+            transform: scale(1.05);
+        }
+
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .popup-content {
+            background-color: white;
+            padding: 30px;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            position: relative;
+            transform: scale(0);
+            animation: popupScale 0.5s forwards;
+        }
+
+        .popup-content h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .popup-content p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Popup animations */
+        @keyframes popupScale {
+            to {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Footer styles */
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 1rem;
+        }
+
+        /* Quiz styles */
         .quiz-container {
             margin-top: 30px;
             padding: 20px;
             background-color: #f4f4f4;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
         }
 
-        .quiz-definition,
-        .quiz-sentence {
+        .quiz-definition {
             font-size: 1.5rem;
             margin-bottom: 20px;
         }
@@ -93,161 +183,115 @@
             margin-top: 20px;
             font-size: 1.3rem;
         }
-
-        #percentageDisplay {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            color: #333;
-        }
-
-        footer {
-            margin-top: 40px;
-            padding: 20px;
-            text-align: center;
-            color: #666;
-            font-size: 0.9rem;
-            border-top: 1px solid #ddd;
-        }
     </style>
 </head>
 <body>
 
-    <h1>Vocabulary List - Unit 3</h1>
+    <h1>Vocabulary List</h1>
+    
+    <div class="vocab-list">
+        <ul id="vocabWords">
+            <li class="vocab-item easy" data-word="Allot" data-definition="to assign or distribute in shares or portions">Allot</li>
+            <li class="vocab-item easy" data-word="Amass" data-definition="to bring together, collect, gather, especially for oneself; to come together, assemble">Amass</li>
+            <li class="vocab-item medium" data-word="Audacious" data-definition="bold, adventurous, recklessly daring">Audacious</li>
+            <li class="vocab-item easy" data-word="Comply" data-definition="to yield to a request or command">Comply</li>
+            <li class="vocab-item medium" data-word="Devoid" data-definition="not having or using, lacking">Devoid</li>
+            <li class="vocab-item medium" data-word="Elite" data-definition="the choice part of a group of people or things; superior">Elite</li>
+            <li class="vocab-item hard" data-word="Grapple" data-definition="an iron hook used to grab and hold; to come to grips with, wrestle or fight with">Grapple</li>
+            <li class="vocab-item hard" data-word="Incapacitate" data-definition="to deprive of strength or ability; to make legally ineligible">Incapacitate</li>
+            <li class="vocab-item medium" data-word="Instigate" data-definition="to urge on; to stir up, start, incite">Instigate</li>
+            <li class="vocab-item easy" data-word="Longevity" data-definition="long life, long duration, length of life">Longevity</li>
+            <li class="vocab-item easy" data-word="Myriad" data-definition="in very great numbers; a very great number">Myriad</li>
+            <li class="vocab-item medium" data-word="Perspective" data-definition="a point of view or general standpoint from which different things are viewed">Perspective</li>
+            <li class="vocab-item hard" data-word="Perturb" data-definition="to trouble, make uneasy; to disturb greatly; to throw into confusion">Perturb</li>
+            <li class="vocab-item hard" data-word="Prodigious" data-definition="immense; extraordinary in bulk, size, or degree">Prodigious</li>
+            <li class="vocab-item medium" data-word="Relevant" data-definition="connected with or related to the matter at hand">Relevant</li>
+            <li class="vocab-item easy" data-word="Skittish" data-definition="extremely nervous and easily frightened; shy or timid">Skittish</li>
+            <li class="vocab-item medium" data-word="Tether" data-definition="a rope or chain used to fasten something to a fixed object; the outer limit of strength or resources">Tether</li>
+            <li class="vocab-item medium" data-word="Unison" data-definition="a sounding together; agreement or accord">Unison</li>
+            <li class="vocab-item hard" data-word="Vie" data-definition="to compete; to strive for victory or superiority">Vie</li>
+            <li class="vocab-item hard" data-word="Willful" data-definition="stubbornly self-willed; done on purpose, deliberate">Willful</li>
+        </ul>
+    </div>
 
-    <!-- Vocabulary List Section -->
-    <div class="vocab-list-container">
-        <h2>Unit 3 Vocabulary Words</h2>
-        <div class="vocab-list">
-            <ul>
-                <li><strong>Allot</strong>: to assign or distribute in shares or portions</li>
-                <li><strong>Amass</strong>: to bring together, collect, gather, especially for oneself; to come together, assemble</li>
-                <li><strong>Audacious</strong>: bold, adventurous, recklessly daring</li>
-                <li><strong>Comply</strong>: to yield to a request or command</li>
-                <li><strong>Devoid</strong>: not having or using, lacking</li>
-                <li><strong>Elite</strong>: the choice part of a group of people or things; superior</li>
-                <li><strong>Grapple</strong>: an iron hook used to grab and hold; to come to grips with, wrestle or fight with</li>
-                <li><strong>Incapacitate</strong>: to deprive of strength or ability; to make legally ineligible</li>
-                <li><strong>Instigate</strong>: to urge on; to stir up, start, incite</li>
-                <li><strong>Longevity</strong>: long life, long duration, length of life</li>
-                <li><strong>Myriad</strong>: in very great numbers; a very great number</li>
-                <li><strong>Perspective</strong>: a point of view or general standpoint from which different things are viewed</li>
-                <li><strong>Perturb</strong>: to trouble, make uneasy; to disturb greatly</li>
-                <li><strong>Prodigious</strong>: immense; extraordinary in bulk, size, or degree</li>
-                <li><strong>Relevant</strong>: connected with or related to the matter at hand</li>
-                <li><strong>Skittish</strong>: extremely nervous and easily frightened; shy or timid</li>
-                <li><strong>Tether</strong>: a rope or chain used to fasten something to a fixed object; to fasten with a rope or chain</li>
-                <li><strong>Unison</strong>: a sounding together; agreement or accord</li>
-                <li><strong>Vie</strong>: to compete; to strive for victory or superiority</li>
-                <li><strong>Willful</strong>: stubbornly self-willed; done on purpose, deliberate</li>
-            </ul>
+    <!-- Popup for word details -->
+    <div id="vocabPopup" class="popup hidden">
+        <div class="popup-content">
+            <span class="close-btn">×</span>
+            <h2 id="popupWord">Word</h2>
+            <p id="popupDefinition">Definition</p>
         </div>
     </div>
 
-    <!-- Definition Quiz Section -->
+    <!-- Quiz Section -->
     <div class="quiz-container">
-        <h2>Guess the Word (Definition)</h2>
+        <h2>Guess the Word</h2>
         <p id="quizDefinition" class="quiz-definition">Definition will go here</p>
-        <input type="text" id="quizInputDef" class="quiz-input" placeholder="Type the word">
-        <button id="quizSubmitDef" class="quiz-btn">Submit</button>
-        <p id="quizResultDef" class="quiz-result"></p>
+        <input type="text" id="quizInput" class="quiz-input" placeholder="Type the word">
+        <button id="quizSubmit" class="quiz-btn">Submit</button
+        <div id="quizResult" class="quiz-result"></div>
     </div>
-
-    <!-- Sentence Quiz Section -->
-    <div class="quiz-container">
-        <h2>Guess the Word (Sentence)</h2>
-        <p id="quizSentence" class="quiz-sentence">Sentence will go here</p>
-        <input type="text" id="quizInputSent" class="quiz-input" placeholder="Type the word">
-        <button id="quizSubmitSent" class="quiz-btn">Submit</button>
-        <p id="quizResultSent" class="quiz-result"></p>
-    </div>
-
-    <div id="percentageDisplay">Percentage: 0%</div>
 
     <footer>
-        why do i do this to myself like this is so boring to code
+        <p>Vocabulary Project</p>
+        <p>Unit 3 Vocabulary Words</p>
     </footer>
 
     <script>
-        // Vocabulary List for Unit 3
-        const vocabList = [
-            { word: "allot", definition: "to assign or distribute in shares or portions", sentence: "The teacher allotted books and supplies to each student for the first day of school." },
-            { word: "amass", definition: "to bring together, collect, gather, especially for oneself; to come together, assemble", sentence: "A good investor can amass a fortune over the long run." },
-            { word: "audacious", definition: "bold, adventurous, recklessly daring", sentence: "The audience cheered the audacious feats of the trapeze artists." },
-            { word: "comply", definition: "to yield to a request or command", sentence: "Employees who fail to comply with a company’s rules may lose their jobs." },
-            { word: "devoid", definition: "not having or using, lacking", sentence: "The old well on my grandparents’ property has long been devoid of water." },
-            { word: "elite", definition: "the choice part of a group of people or things; superior", sentence: "Each year, the social elite of the community sponsors several events to benefit local charities." },
-            { word: "grapple", definition: "an iron hook used to grab and hold; to come to grips with, wrestle or fight with", sentence: "A ship equipped with grapples may be used to recover large pieces of wreckage from the ocean floor." },
-            { word: "incapacitate", definition: "to deprive of strength or ability; to make legally ineligible", sentence: "In the 1940s and 1950s, polio incapacitated many thousands of people each year all over the world." },
-            { word: "instigate", definition: "to urge on; to stir up, start, incite", sentence: "Several demonstrators in the angry crowd did their best to instigate a riot." },
-            { word: "longevity", definition: "long life, long duration, length of life", sentence: "The sea turtle is known for its longevity." },
-            { word: "myriad", definition: "in very great numbers; a very great number", sentence: "Scientists continue to make new discoveries in their studies of the myriad life-forms of the jungle." },
-            { word: "perspective", definition: "a point of view or general standpoint from which different things are viewed", sentence: "The designs for the children’s playhouse were drawn to scale and in the right perspective." },
-            { word: "perturb", definition: "to trouble, make uneasy; to disturb greatly", sentence: "The rude and disruptive behavior of several party guests perturbed the host and hostess." },
-            { word: "prodigious", definition: "immense; extraordinary in bulk, size, or degree", sentence: "Few intellects have rivaled the prodigious mind of Albert Einstein." },
-            { word: "relevant", definition: "connected with or related to the matter at hand", sentence: "I found several Web sites that provided information relevant to the topic of my research paper." },
-            { word: "skittish", definition: "extremely nervous and easily frightened; shy or timid", sentence: "Only an experienced and confident rider should mount a skittish horse." },
-            { word: "tether", definition: "a rope or chain used to fasten something to a fixed object; to fasten with a rope or chain", sentence: "Some young people find it difficult to break the emotional and financial tether that binds them to their parents." },
-            { word: "unison", definition: "a sounding together; agreement or accord", sentence: "The members of our new student orchestra need to practice playing in unison." },
-            { word: "vie", definition: "to compete; to strive for victory or superiority", sentence: "Many actors vie for the leading role in the famous director’s new film." },
-            { word: "willful", definition: "stubbornly self-willed; done on purpose, deliberate", sentence: "After lengthy deliberations, the jury found the defendant guilty of willful murder." }
-        ];
+        // JavaScript code to handle vocabulary word popups and quizzes
 
-        let correctCount = 0;
-        let totalAttempts = 0;
+        const vocabItems = document.querySelectorAll('.vocab-item');
+        const vocabPopup = document.getElementById('vocabPopup');
+        const popupWord = document.getElementById('popupWord');
+        const popupDefinition = document.getElementById('popupDefinition');
+        const quizDefinition = document.getElementById('quizDefinition');
+        const quizInput = document.getElementById('quizInput');
+        const quizSubmit = document.getElementById('quizSubmit');
+        const quizResult = document.getElementById('quizResult');
 
-        function loadDefinitionQuiz() {
-            const randomWordObj = vocabList[Math.floor(Math.random() * vocabList.length)];
-            document.getElementById("quizDefinition").textContent = randomWordObj.definition;
+        let currentWord;
 
-            const quizSubmitDef = document.getElementById("quizSubmitDef");
-            quizSubmitDef.onclick = function () {
-                totalAttempts++;
-                const userAnswer = document.getElementById("quizInputDef").value.trim().toLowerCase();
-                if (userAnswer === randomWordObj.word.toLowerCase()) {
-                    document.getElementById("quizResultDef").textContent = "Correct!";
-                    document.getElementById("quizResultDef").style.color = "green";
-                    correctCount++;
-                } else {
-                    document.getElementById("quizResultDef").textContent = `Incorrect. The correct word was: ${randomWordObj.word}`;
-                    document.getElementById("quizResultDef").style.color = "red";
-                }
-                document.getElementById("quizInputDef").value = '';
-                loadDefinitionQuiz();
-                updatePercentage();
-            };
+        vocabItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const word = item.dataset.word;
+                const definition = item.dataset.definition;
+                showPopup(word, definition);
+            });
+        });
+
+        function showPopup(word, definition) {
+            popupWord.textContent = word;
+            popupDefinition.textContent = definition;
+            vocabPopup.classList.remove('hidden');
         }
 
-        function loadSentenceQuiz() {
-            const randomWordObj = vocabList[Math.floor(Math.random() * vocabList.length)];
-            document.getElementById("quizSentence").textContent = randomWordObj.sentence;
+        vocabPopup.addEventListener('click', (e) => {
+            if (e.target.classList.contains('close-btn') || e.target === vocabPopup) {
+                vocabPopup.classList.add('hidden');
+            }
+        });
 
-            const quizSubmitSent = document.getElementById("quizSubmitSent");
-            quizSubmitSent.onclick = function () {
-                totalAttempts++;
-                const userAnswer = document.getElementById("quizInputSent").value.trim().toLowerCase();
-                if (userAnswer === randomWordObj.word.toLowerCase()) {
-                    document.getElementById("quizResultSent").textContent = "Correct!";
-                    document.getElementById("quizResultSent").style.color = "green";
-                    correctCount++;
-                } else {
-                    document.getElementById("quizResultSent").textContent = `Incorrect. The correct word was: ${randomWordObj.word}`;
-                    document.getElementById("quizResultSent").style.color = "red";
-                }
-                document.getElementById("quizInputSent").value = '';
-                loadSentenceQuiz();
-                updatePercentage();
-            };
+        function generateQuiz() {
+            const randomIndex = Math.floor(Math.random() * vocabItems.length);
+            currentWord = vocabItems[randomIndex].dataset.word;
+            const definition = vocabItems[randomIndex].dataset.definition;
+            quizDefinition.textContent = definition;
+            quizInput.value = '';
+            quizResult.textContent = '';
         }
 
-        function updatePercentage() {
-            const percentage = totalAttempts ? ((correctCount / totalAttempts) * 100).toFixed(2) : 0;
-            document.getElementById("percentageDisplay").textContent = `Percentage: ${percentage}%`;
-        }
+        quizSubmit.addEventListener('click', () => {
+            const userAnswer = quizInput.value.trim();
+            if (userAnswer.toLowerCase() === currentWord.toLowerCase()) {
+                quizResult.textContent = "Correct!";
+                generateQuiz(); // Generate a new quiz question
+            } else {
+                quizResult.textContent = `Wrong! The correct answer was "${currentWord}".`;
+            }
+        });
 
-        // Initialize Quizzes
-        loadDefinitionQuiz();
-        loadSentenceQuiz();
+        // Start the quiz when the page loads
+        window.onload = generateQuiz;
     </script>
-
 </body>
 </html>
