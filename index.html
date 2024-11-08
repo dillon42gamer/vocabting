@@ -273,6 +273,44 @@
             { word: "vie", definition: "to compete; to strive for victory or superiority", sentence: "Many actors ___ for the leading role in the famous director’s new film." },
             { word: "willful", definition: "stubbornly self-willed; done on purpose, deliberate", sentence: "After lengthy deliberation, the jury found the defendant guilty of ___ murder." }
         ];
+       // JavaScript for Popup and Text-to-Speech Functionality
+
+         document.addEventListener('DOMContentLoaded', function() {
+            const vocabItems = document.querySelectorAll('.vocab-item');
+            const popup = document.getElementById('vocabPopup');
+            const popupWord = document.getElementById('popupWord');
+            const popupDefinition = document.getElementById('popupDefinition');
+            const closeBtn = document.querySelector('.close-btn');
+
+            // Open popup and speak word when a vocab word is clicked
+            vocabItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const word = this.dataset.word;
+                    const definition = this.dataset.definition;
+
+                    popupWord.textContent = word;
+                    popupDefinition.textContent = definition;
+                    popup.classList.remove('hidden');
+
+                    // Text-to-Speech
+                    const speech = new SpeechSynthesisUtterance(word);
+                    speech.lang = 'en-US'; // Set the language
+                    window.speechSynthesis.speak(speech);
+                });
+            });
+
+            // Close popup when the close button is clicked
+            closeBtn.addEventListener('click', function() {
+                popup.classList.add('hidden');
+            });
+
+            // Close popup when clicking outside of it
+            window.addEventListener('click', function(e) {
+                if (e.target === popup) {
+                    popup.classList.add('hidden');
+                }
+            });
+        });
 
         let correctCount = 0;
         let totalCount = 0;
